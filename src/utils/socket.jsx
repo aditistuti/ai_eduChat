@@ -4,7 +4,7 @@ let socket = null;
 
 export const connectSocket = () => {
   if (!socket) {
-    socket = io('http://localhost:3001'); // Your WebSocket server URL
+    socket = io('https://backend-educhat.onrender.com'); // Your WebSocket server URL
   }
 };
 
