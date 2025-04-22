@@ -15,6 +15,11 @@ function App() {
   useEffect(() => {
     connectSocket();
     const socket = getSocket();
+    
+    socket.on('typing', () => {
+      dispatch(setTypingUsers(['AI']));
+    });
+    
 
     socket.on('connect', () => {
       dispatch(connectionOpened());

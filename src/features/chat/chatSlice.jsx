@@ -1,4 +1,3 @@
-
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchInitialMessages = createAsyncThunk(
@@ -15,7 +14,7 @@ const chatSlice = createSlice({
     messages: [],
     typingUsers: [],
     connected: false,
-    status: 'idle',  
+    status: 'idle',
     error: null,
   },
   reducers: {
@@ -25,8 +24,11 @@ const chatSlice = createSlice({
     messageSent(state, action) {
       state.messages.push(action.payload);
     },
+    clearMessages(state) {
+      state.messages = [];
+    },
     setTypingUsers(state, action) {
-      state.typingUsers = action.payload; 
+      state.typingUsers = action.payload;
     },
     connectionOpened(state) {
       state.connected = true;
@@ -61,6 +63,7 @@ const chatSlice = createSlice({
 export const {
   messageReceived,
   messageSent,
+  clearMessages,
   setTypingUsers,
   connectionOpened,
   connectionClosed,
